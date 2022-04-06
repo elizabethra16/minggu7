@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:minggu7/model/wallpaper_model.dart';
+import 'package:minggu7/model/photo_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:minggu7/widgets/widget.dart';
 import 'dart:convert';
@@ -13,7 +13,7 @@ class Categorie extends StatefulWidget {
 }
 
 class _CategorieState extends State<Categorie> {
-  List<WallpaperModel> photo = [];
+  List<photoModel> photo = [];
 
   getSearchWallpapers(String query) async{
     var response = await http.get(Uri.parse("https://api.pexels.com/v1/search?query=$query&per_page=15&page=1"), 
@@ -24,8 +24,8 @@ class _CategorieState extends State<Categorie> {
     Map<String,dynamic> jsonData = jsonDecode(response.body);
     jsonData["photos"].forEach((element){
       // print(element);
-      WallpaperModel wallpaperModel = new WallpaperModel();
-      wallpaperModel = WallpaperModel.fromMap(element);
+      photoModel wallpaperModel = new photoModel();
+      wallpaperModel = photoModel.fromMap(element);
       photo.add(wallpaperModel);
     });
 

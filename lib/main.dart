@@ -2,22 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:minggu7/views/home.dart';
 
 void main() {
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'WallpaperHub',
+      title: 'Wallpaper Hub',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-   
         primaryColor: Colors.white,
       ),
-      home:  MyApp(),
+      home: HomePage(),
     );
   }
 }
